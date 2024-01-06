@@ -5,13 +5,16 @@ import Order from "./Order.tsx";
 import OrderResult from "./OrderResult.tsx";
 import "./App.css";
 import { HashRouter, Route, Routes } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+import "./assets/style/main.scss";
+
 import Logo from "./Logo";
 
 function App() {
   return (
     <>
-      <div className="container">
+      <div className="container text-primary">
         <Logo title="Welcom to Vite + React!" />
         <nav className="d-flex justify-content-center mb-3 gap-3">
           <a href="#/">Count</a>
