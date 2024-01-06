@@ -1,18 +1,22 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function OrderResult() {
   const API_URL = "https://enjoymentluxuryhotel.onrender.com/api/v1";
-
-  const id = new URLSearchParams(window.location.search).get("merchantOrderNo");
-
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const id = urlParams.get("MerchantOrderNo");
   const [orderResult, setOrderResult] = useState(false);
-  const getOrderResult = async () => {
-    const response = await axios.get(`${API_URL}/order/merchantOrderNo/${id}`);
-    setOrderResult(response.data.status);
-  };
-
-  getOrderResult();
+  useEffect(() => {
+    const getOrderResult = async () => {
+      const response = await axios.get(
+        `${API_URL}/order/merchantOrderNo/${id}`
+      );
+      setOrderResult(response.data.status);
+    };
+    getOrderResult();
+  }, [id]);
   return (
     <>
       <h2>Order Result</h2>
