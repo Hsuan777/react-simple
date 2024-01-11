@@ -2,11 +2,10 @@
 import { useForm } from "react-hook-form";
 
 type InputName = "oldPW" | "newPW" | "checkNewPW";
-
+type TResetPW = Record<InputName, string>;
 // 重設密碼表單
 const resetPWFormInputs = [
   {
-    id: "oldPW",
     name: "oldPW",
     label: "舊密碼",
     placeholder: "請輸入舊密碼",
@@ -19,7 +18,6 @@ const resetPWFormInputs = [
     },
   },
   {
-    id: "newPW",
     name: "newPW",
     label: "新密碼",
     placeholder: "請輸入新密碼",
@@ -40,7 +38,6 @@ const resetPWFormInputs = [
     },
   },
   {
-    id: "checkNewPW",
     name: "checkNewPW",
     label: "確認新密碼",
     placeholder: "請再次輸入一次新密碼",
@@ -61,12 +58,6 @@ const resetPWFormInputs = [
     },
   },
 ];
-
-type TResetPW = {
-  oldPW: string;
-  newPW: string;
-  checkNewPW: string;
-};
 
 function ResetPWForm() {
   const {
@@ -89,14 +80,11 @@ function ResetPWForm() {
     <form onSubmit={handleSubmit(onSubmit)}>
       {resetPWFormInputs.map((input) => {
         return (
-          <div className="mb-3" key={input.id}>
-            <label htmlFor={input.id} className="form-label">
-              {input.label}
-            </label>
+          <div className="mb-3" key={input.name}>
+            <label className="form-label">{input.label}</label>
             <input
               type={input.type}
               className="form-control"
-              id={input.id}
               placeholder={input.placeholder}
               {...register(input.name as InputName, input.options)}
             />
