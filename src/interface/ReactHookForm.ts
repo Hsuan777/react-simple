@@ -1,5 +1,5 @@
-export interface IReactHookFormInput {
-  name: string;
+export interface IReactHookFormInput<T extends string> {
+  name: T;
   label: string;
   placeholder: string;
   type: string;

@@ -1,6 +1,7 @@
 import "./UserPage.css";
 import { useState } from "react";
 import UpdatePWForm from "../components/UpdatePWForm";
+import UpdateUserForm from "../components/UpdateUserForm";
 
 function UserPage() {
   const [resetPW, setResetPW] = useState(false);
@@ -51,7 +52,7 @@ function UserPage() {
             aria-labelledby="pills-home-tab"
           >
             <div className="d-flex row">
-              <div className="col-5 p-10">
+              <div className="col-sm-12 col-md-5 p-10">
                 <p className="mb-10">修改密碼</p>
                 <div className="mb-6">
                   <label htmlFor="exampleInputEmail1" className="form-label">
@@ -83,8 +84,9 @@ function UserPage() {
                   {resetPW && <UpdatePWForm />}
                 </div>
               </div>
-              <div className="col-7 p-10">
+              <div className="col-sm-12 col-md-7 p-10">
                 <p>基本資料</p>
+                <UpdateUserForm />
               </div>
             </div>
           </div>

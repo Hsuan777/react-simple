@@ -5,7 +5,7 @@ import { IReactHookFormInput } from "../interface/ReactHookForm";
 type InputName = "oldPW" | "newPW" | "checkNewPW";
 type TUpdatePW = Record<InputName, string>;
 
-const resetPWFormInputs: Array<IReactHookFormInput> = [
+const resetPWFormInputs: Array<IReactHookFormInput<InputName>> = [
   {
     name: "oldPW",
     label: "舊密碼",
@@ -79,7 +79,7 @@ function UpdatePWForm() {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {resetPWFormInputs.map((input: IReactHookFormInput) => {
+      {resetPWFormInputs.map((input: IReactHookFormInput<InputName>) => {
         return (
           <div className="mb-3" key={input.name}>
             <label className="form-label">{input.label}</label>
@@ -87,11 +87,11 @@ function UpdatePWForm() {
               type={input.type}
               className="form-control"
               placeholder={input.placeholder}
-              {...register(input.name as InputName, input.options)}
+              {...register(input.name, input.options)}
             />
-            {errors[input.name as InputName] && (
+            {errors[input.name] && (
               <p className="text-danger" role="alert">
-                {errors[input.name as InputName]?.message as string}
+                {errors[input.name]?.message}
               </p>
             )}
           </div>
