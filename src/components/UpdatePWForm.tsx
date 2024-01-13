@@ -2,12 +2,12 @@
 import { useForm } from "react-hook-form";
 import { IReactHookFormInput } from "../interface/ReactHookForm";
 
-type InputName = "oldPW" | "newPW" | "checkNewPW";
+type InputName = "oldPassword" | "newPassword" | "checkNewPassword";
 type TUpdatePW = Record<InputName, string>;
 
 const resetPWFormInputs: Array<IReactHookFormInput<InputName>> = [
   {
-    name: "oldPW",
+    name: "oldPassword",
     label: "舊密碼",
     placeholder: "請輸入舊密碼",
     type: "password",
@@ -19,7 +19,7 @@ const resetPWFormInputs: Array<IReactHookFormInput<InputName>> = [
     },
   },
   {
-    name: "newPW",
+    name: "newPassword",
     label: "新密碼",
     placeholder: "請輸入新密碼",
     type: "password",
@@ -39,7 +39,7 @@ const resetPWFormInputs: Array<IReactHookFormInput<InputName>> = [
     },
   },
   {
-    name: "checkNewPW",
+    name: "checkNewPassword",
     label: "確認新密碼",
     placeholder: "請再次輸入一次新密碼",
     type: "password",
@@ -69,8 +69,8 @@ function UpdatePWForm() {
   } = useForm<TUpdatePW>();
   const onSubmit = (data: TUpdatePW) => {
     console.log(data);
-    if (data.newPW !== data.checkNewPW) {
-      setError("checkNewPW", {
+    if (data.newPassword !== data.checkNewPassword) {
+      setError("checkNewPassword", {
         type: "manual",
         message: "新密碼和確認新密碼不相同",
       });
