@@ -1,6 +1,6 @@
 import "./UserPage.css";
 import { useState } from "react";
-import ResetPWForm from "../Components/ResetPWForm";
+import UpdatePWForm from "../components/UpdatePWForm";
 
 function UserPage() {
   const [resetPW, setResetPW] = useState(false);
@@ -80,7 +80,7 @@ function UserPage() {
                   </div>
                   {/* 更新密碼表單 */}
                   {/* resetPW === true 顯示 Form  */}
-                  {resetPW && <ResetPWForm />}
+                  {resetPW && <UpdatePWForm />}
                 </div>
               </div>
               <div className="col-7 p-10">

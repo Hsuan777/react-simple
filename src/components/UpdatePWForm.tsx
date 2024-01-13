@@ -1,10 +1,11 @@
 // import react-hook-form
 import { useForm } from "react-hook-form";
+import { IReactHookFormInput } from "../interface/ReactHookForm";
 
 type InputName = "oldPW" | "newPW" | "checkNewPW";
-type TResetPW = Record<InputName, string>;
-// 重設密碼表單
-const resetPWFormInputs = [
+type TUpdatePW = Record<InputName, string>;
+
+const resetPWFormInputs: Array<IReactHookFormInput> = [
   {
     name: "oldPW",
     label: "舊密碼",
@@ -59,14 +60,14 @@ const resetPWFormInputs = [
   },
 ];
 
-function ResetPWForm() {
+function UpdatePWForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<TResetPW>();
-  const onSubmit = (data: TResetPW) => {
+  } = useForm<TUpdatePW>();
+  const onSubmit = (data: TUpdatePW) => {
     console.log(data);
     if (data.newPW !== data.checkNewPW) {
       setError("checkNewPW", {
@@ -78,7 +79,7 @@ function ResetPWForm() {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {resetPWFormInputs.map((input) => {
+      {resetPWFormInputs.map((input: IReactHookFormInput) => {
         return (
           <div className="mb-3" key={input.name}>
             <label className="form-label">{input.label}</label>
@@ -101,4 +102,4 @@ function ResetPWForm() {
   );
 }
 
-export default ResetPWForm;
+export default UpdatePWForm;
