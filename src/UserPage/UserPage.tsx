@@ -96,7 +96,66 @@ function UserPage() {
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
           >
-            ...
+            <div className="d-flex row">
+              <div className="col-sm-12 col-md-7 p-10">
+                <span>預訂參考編號： HH2302183151222</span>
+                <p className="mb-10">即將來的行程</p>
+                <img
+                  className="img-fluid w-100 mb-10"
+                  style={{ height: "434px", objectFit: "cover" }}
+                  src="https://fakeimg.pl/250x434/"
+                ></img>
+                <p className="mb-6">尊爵雙人房，1 晚 | 住宿人數：2 位</p>
+                <p className="mb-2">| 入住：6 月 10 日星期二，15:00 可入住</p>
+                <p className="mb-6">| 退房：6 月 11 日星期三，12:00 前退房</p>
+                <p>NT$ 10,000</p>
+                <hr className="my-10" />
+                <p className="mb-6">| 房內設備</p>
+                <p className="mb-6">| 備品提供</p>
+                <div className="d-flex justify-content-between">
+                  <input
+                    type="button"
+                    value="取消預訂"
+                    className="btn btn-outline-primary w-100 me-4"
+                  />
+                  <input
+                    type="button"
+                    value="查看詳情"
+                    className="btn btn-primary w-100"
+                  />
+                </div>
+              </div>
+              <div className="col-sm-12 col-md-5 p-10">
+                <p className="mb-10">歷史訂單</p>
+                <div className="row">
+                  <div className="col-12 mb-10 pb-10">
+                    <div className="d-flex justify-content-between">
+                      <img
+                        className="rounded-2 h-100"
+                        src="https://fakeimg.pl/120x80/"
+                      ></img>
+                      <div>
+                        <span className="mb-4">
+                          預訂參考編號： HH2302183151222
+                        </span>
+                        <p className="mb-4">尊爵雙人房</p>
+                        <p className="mb-2">住宿天數： 1 晚</p>
+                        <p className="mb-4">住宿人數： 2 位</p>
+                        <p className="mb-2">| 入住：6 月 10 日星期二</p>
+                        <p className="mb-4">| 退房：6 月 11 日星期三</p>
+                        <p>NT$10,000</p>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+                </div>
+                <input
+                  type="button"
+                  value="查看更多"
+                  className="btn btn-outline-primary w-100"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
